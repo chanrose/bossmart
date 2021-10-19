@@ -1,0 +1,2 @@
+django-tailwind
+django-oscar[sorl-thumbnail]
