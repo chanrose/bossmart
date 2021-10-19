@@ -27,9 +27,11 @@
             {# Default to using Google analytics #}
             {% include "oscar/partials/google_analytics.html" %}
         {% endblock %}
+        {% tailwind_css %}
     </head>
 
     <body id="{% block body_id %}default{% endblock %}" class="{% block body_class %}default{% endblock %} bg-red-400">
+        <div class="text-red-500"> Test </div>
         {# Main content goes in this 'layout' block #}
         {% block layout %}{% endblock %}
 
