@@ -11,6 +11,10 @@
         <meta name="description" content="{% block description %}{% endblock %}" />
         <meta name="viewport" content="{% block viewport %}width=device-width{% endblock %}" />
         <meta name="robots" content="NOARCHIVE,NOCACHE" />
+        <script defer src="https://unpkg.com/alpinejs@3.4.2/dist/cdn.min.js"></script>
+        <script src="https://unpkg.com/htmx.org@1.6.0" integrity="sha384-G4dtlRlMBrk5fEiRXDsLjriPo8Qk5ZeHVVxS8KhX6D7I9XXJlNqbdvRlp9/glk5D" crossorigin="anonymous"></script>
+
+
         {% block favicon %}
             <link rel="shortcut icon" href="{% static "oscar/favicon.ico" %}" />
         {% endblock %}
@@ -31,7 +35,6 @@
     </head>
 
     <body id="{% block body_id %}default{% endblock %}" class="{% block body_class %}default{% endblock %} bg-red-400">
-        <div class="text-red-500"> Test </div>
         {# Main content goes in this 'layout' block #}
         {% block layout %}{% endblock %}
 
