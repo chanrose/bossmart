@@ -56,8 +56,14 @@
             {% endblock %}
 
             {% block nav_extra %}
+                {% include "oscar/partials/mini_basket.html" %}
+                {% comment %}
                 {% include "oscar/partials/search.html" %}
+                {% endcomment %}
+
+
             {% endblock %}
+
         </div>
     {% endblock %}
 </nav>
