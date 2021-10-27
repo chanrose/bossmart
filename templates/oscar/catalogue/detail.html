@@ -285,7 +285,7 @@
 
     {% iffeature "reviews" %}
         {% block product_review %}
-        <section>
+        <section class="my-3">
             <div id="reviews" class="sub-header">
                 {% if product.num_approved_reviews > 3 %}
                     <a href="{% url 'catalogue:reviews-list' product_slug=product.slug product_pk=product.id %}" class="btn float-right">{% trans "See all reviews" %}</a>
@@ -300,6 +300,10 @@
                             {% blocktrans %}This product does not have any reviews yet -
                             <a href="{{ add_review_url }}#addreview">be the first to write one</a>.
                         {% endblocktrans %}
+                        <br />
+                    <a id="write_review" href="{% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id %}#addreview" class="text-blue-700 hover:underline">
+                          {% trans "Write a review" %}
+                      </a>
                     {% else %}
                         {% trans "This product does not have any reviews yet" %}.
                     {% endif %}
@@ -317,19 +321,19 @@
 
     {% with recommended_products=product.sorted_recommended_products|slice:":6" %}
         {% if recommended_products %}
-            <div class="sub-header">
+            <div class="sub-header my-3">
                 <h2>{% trans "Recommended items" %}</h2>
             </div>
             <ul class="row list-unstyled mx-0">
                 {% for product in recommended_products %}
-                <li class="col-sm-4 col-md-3 col-lg-3">
+                <li class="col-sm-4 col-md-3 col-lg-3 p-1">
                     {% render_product product %}
                 </li>
                 {% endfor %}
             </ul>
         {% endif %}
     {% endwith %}
-
+  <br />
     {% recently_viewed_products current_product=product %}
 
 </article><!-- End of product page -->

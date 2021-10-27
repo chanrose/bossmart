@@ -4,7 +4,7 @@
 {% load reviews_tags %}
 
 {% block product %}
-<article class="flex flex-col items-center justify-center w-full max-w-lg mx-auto">
+<article class="flex flex-col items-center justify-center w-full max-w-lg mx-auto shadow-sm">
     {% block product_image %}
             {% with image=product.primary_image %}
                 {% oscar_thumbnail image.original "x155" upscale=False as thumb %}
@@ -27,7 +27,7 @@
     {% endblock %}
 
     {% block product_title %}
-        <h3 class="mt-3">
+        <h3 class="mt-1">
             <a href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">
                 {{ product.get_title|truncatewords:3 }}
             </a>

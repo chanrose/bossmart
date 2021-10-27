@@ -15,14 +15,14 @@
 {% else %}
     <p class="price_color">&nbsp;</p>
 {% endif %}
-<p class="{{ session.availability.code }} mt-2">
+<p class="{{ session.availability.code }} mt-1">
     {% if session.availability.is_available_to_buy %}
         {% comment %} <i class="fas fa-check-circle"></i>  {% endcomment %}
     {% else %}
         {% comment %} <i class="fas fa-ban"></i> {% endcomment %}
     {% endif %}
     {% if verbose %}
-        {{ session.availability.message }} Test
+        {{ session.availability.message }}
     {% else %}
         {{ session.availability.short_message }}
     {% endif %}
