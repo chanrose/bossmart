@@ -190,6 +190,13 @@ OSCAR_DEFAULT_CURRENCY = '฿'
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    Path.joinpath(BASE_DIR, 'static')
+]
+
+MEDIA_ROOT = "/media/"
+MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

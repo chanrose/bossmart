@@ -1,12 +1,23 @@
 {% load i18n %}
 
-{% if quantity == 1 %}
-    {% blocktrans with title=product.get_title %}
-    <strong>{{ title }}</strong> has been added to your basket.
-    {% endblocktrans %}
-{% else %}
-    {% blocktrans with title=product.get_title quantity=quantity %}
-    <strong>{{ quantity }}</strong> copies of <strong>{{ title }}</strong>
-    have been added to your basket.
-    {% endblocktrans %}
-{% endif %}
+<div class="w-full text-white bg-green-500">
+    <div class="container flex items-center justify-between px-6 py-4 mx-auto">
+        <div class="flex items-center">
+            <svg viewBox="0 0 40 40" class="w-6 h-6 fill-current">
+                <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z"></path>
+            </svg>
+            <div> 
+                {% if quantity == 1 %}
+                    {% blocktrans with title=product.get_title %}
+                    <p class="mx-3"><strong>{{ title }} </strong>has been added to your basket</p>
+                    {% endblocktrans %}
+                {% else %}
+                    {% blocktrans with title=product.get_title quantity=quantity %}
+                    <p class="mx-3"><strong>{{ quantity }} {{ title }} </strong>have been added to your basket</p>
+                    {% endblocktrans %}
+                {% endif %}
+            </div>
+            
+        </div>
+    </div>
+</div>

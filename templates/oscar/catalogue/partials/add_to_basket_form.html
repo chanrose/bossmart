@@ -7,10 +7,11 @@
 
 {% if session.availability.is_available_to_buy %}
     {% basket_form request product as basket_form %}
-    <form id="add_to_basket_form" action="{% url 'basket:add' pk=product.pk  %}" method="post" class="add-to-basket mb-0">
+    <form id="add_to_basket_form" action="{% url 'basket:add' pk=product.pk  %}" method="post" class="add-to-basket mt-8">
         {% csrf_token %}
         {% include "oscar/partials/form_fields.html" with form=basket_form %}
-        <button type="submit" class="btn btn-lg btn-primary w-100" value="{% trans "Add to basket" %}" data-loading-text="{% trans 'Adding...' %}">{% trans "Add to basket" %}</button>
+        
+        <button type="submit" class="flex items-center justify-center w-full px-2 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-gray-800 rounded-md hover:bg-gray-700 focus:outline-none focus:bg-gray-700" value="{% trans "Add to basket" %}" data-loading-text="{% trans 'Adding...' %}">{% trans "Add to basket" %}</button>
     </form>
     {% iffeature "wishlists" %}
         {% include "oscar/catalogue/partials/add_to_wishlist.html" %}
@@ -23,7 +24,7 @@
             {% csrf_token %}
             <p>{% trans "You can get an email alert when this product is back in stock." %}</p>
             {% include "oscar/partials/form_fields.html" with form=alert_form %}
-            <button type="submit" class="btn btn-lg btn-info w-100" data-loading-text="{% trans 'Submitting...' %}">{% trans "Notify me" %}</button>
+            <button type="submit" class="btn btn-lg btn-info w-100 " data-loading-text="{% trans 'Submitting...' %}">{% trans "Notify me" %}</button>
         </form>
     {% endif %}
     {% iffeature "wishlists" %}

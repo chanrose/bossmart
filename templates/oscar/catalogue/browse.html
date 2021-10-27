@@ -21,13 +21,14 @@
 {% endblock breadcrumbs %}
 
 {% block column_left %}
+
     {% category_tree as tree_categories %}
     {% if tree_categories %}
-        <h4>{% trans "Show results for" %}</h4>
-        <div class="side_categories card card-body bg-light">
+        <!-- <div class="side_categories card card-body bg-light"> -->
+        <div class="space-y-3 lg:w-3/5 lg:px-3 lg:space-y-4">
             <ul class="nav nav-list">
                 {% for tree_category in tree_categories %}
-                    <li class="mt-2">
+                    <li class="m-1">
                         <a href="{{ tree_category.url }}">
                             {% if tree_category.pk == category.pk %}
                                 <strong>{{ tree_category.name }}</strong>
@@ -45,8 +46,9 @@
         </div>
     {% endif %}
     {% if has_facets %}
-        <h4>{% trans "Refine by" %}</h4>
-        <div class="side_categories card card-body bg-light">
+        <h4 class="">{% trans "Refine by" %}</h4>
+        <!-- <div class="side_categories card card-body bg-light"> -->
+        <div class="  space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4">
             {% for field, data in facet_data.items %}
                 {% if data.results %}
                     {% include 'oscar/search/partials/facet.html' with name=data.name items=data.results %}
@@ -54,10 +56,10 @@
             {% endfor %}
         </div>
     {% endif %}
+
 {% endblock %}
 
 {% block content %}
-
     <form method="get">
         {# Render other search params as hidden inputs #}
         {% for value in selected_facets %}
@@ -93,14 +95,22 @@
 
     {% if products %}
         <section>
-            <div>
-                <ol class="row list-unstyled ml-0 pl-0">
+        <!-- not sure how this will be outputed hahah -->
+            <div class="grid grid-cols-1 gap-8 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {% for product in products %}
+                <div class="flex flex-col items-center justify-center w-full max-w-lg mx-auto">
+                    <p >{% render_product product %}</p>
+                </div>
+                {% endfor %}
+            </div>
+
+               <!-- previous one -->
+               <!--  <ol class="row list-unstyled ml-0 pl-0">
                     {% for product in products %}
                         <li class="col-sm-6 col-md-4 col-lg-3">{% render_product product %}</li>
                     {% endfor %}
-                </ol>
+                </ol> -->
                 {% include "oscar/partials/pagination.html" %}
-            </div>
         </section>
     {% else %}
         <p class="nonefound">{% trans "No products found." %}</p>

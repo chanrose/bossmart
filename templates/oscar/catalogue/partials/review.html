@@ -1,17 +1,22 @@
 {% load reviews_tags %}
 {% load i18n %}
 
-<article class="review">
+<article class="bg-white dark:bg-gray-800 w-full rounded-lg  mb-6 shadow sm:inline-block">
+<div class="bg-gray-700 w-full text-white rounded-lg p-2">
+
+        <a href="{{ review.get_absolute_url }}" class="m-2">{{ review.title }}</a>
+</div>
+<div class="p-3">
     <header>
+
         <h3 class="star-rating {{ review.score|as_stars }}">
             <span>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+                <i class="fas fa-heartbeat"></i>
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heartbeat"></i>
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heartbeat"></i>
             </span>
-            <a href="{{ review.get_absolute_url }}">{{ review.title }}</a>
         </h3>
     </header>
 
@@ -59,4 +64,5 @@
         {% endif %}
         </small>
     </p>
+    </div>
 </article>

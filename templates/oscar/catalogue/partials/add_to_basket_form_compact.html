@@ -9,8 +9,9 @@
     <form action="{% url 'basket:add' pk=product.pk %}" method="post">
         {% csrf_token %}
         {{ basket_form.as_p }}
-        <button type="submit" class="btn btn-primary btn-block" data-loading-text="{% trans 'Adding...' %}">{% trans "Add to basket" %}</button>
+        <button type="submit" class="flex items-center justify-center w-full px-2 py-2 mt-4 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-gray-800 rounded-md hover:bg-gray-700 focus:outline-none focus:bg-gray-700" data-loading-text="{% trans 'Adding...' %}">{% trans "Add to basket" %}</button>
     </form>
 {% else %}
-    <span class="btn btn-secondary btn-block disabled">{% trans "Add to basket" %}</span>
+    <button class="flex items-center justify-center w-full px-2 py-2 mt-4 font-medium tracking-wide text-white capitalize bg-gray-500 rounded-md">{% trans "Add to basket" %}</button>
+    {% comment %} <span class="btn btn-secondary btn-block disabled">{% trans "Add to basket" %}</span> {% endcomment %}
 {% endif %}
