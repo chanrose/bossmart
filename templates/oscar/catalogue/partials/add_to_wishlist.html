@@ -7,8 +7,8 @@
         {% wishlists_containing_product wishlists product as product_wishlists %}
         {% if wishlists %}
 
-            <div class="btn-group btn-wishlist align-bottom">
-                <a class="btn btn-lg dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Add to wish list" %}</a>
+            <div class="inline-block my-2 bg-gray-800 text-white p-2 rounded-lg hover:text-white hover:bg-gray-700">
+                <a class="dropdown-toggle no-underline hover:text-white hover:no-underline" data-toggle="dropdown" href="#">{% trans "Add to wish list" %}</a>
                 <ul class="dropdown-menu dropdown-menu-right">
                     {% for wishlist in wishlists %}
                         {% if wishlist not in product_wishlists %}
@@ -30,9 +30,9 @@
             </div>
         {% else %}
             {# 1 or no existing wishlists - show a simple button #}
-            <form id="add_to_wishlist_form" action="{% url 'customer:wishlists-add-product' product_pk=product.pk %}" method="post" class="btn-wishlist align-bottom">
+            <form id="add_to_wishlist_form" action="{% url 'customer:wishlists-add-product' product_pk=product.pk %}" method="post" class="">
                 {% csrf_token %}
-                <button type="submit" class=" text-xl bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-gray-900 py-2 px-4 border border-blue-500 hover:border-transparent rounded" data-loading-text="{% trans 'Adding...' %}">{% trans "Add to wish list" %}</button>
+                <button type="submit" class="flex items-center justify-center w-full px-2 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-gray-800 rounded-md hover:bg-gray-700 focus:outline-none focus:bg-gray-700"   class=" text-xl bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-gray-900 py-2 px-4 border border-blue-500 hover:border-transparent rounded" data-loading-text="{% trans 'Adding...' %}">{% trans "Add to wish list 1" %}</button>
             </form>
         {% endif %}
 
@@ -42,10 +42,10 @@
                 {% blocktrans with name=wishlist.name url=wishlist.get_absolute_url %}
                     <span class="float-left">Product is in <a href="{{ url }}">'{{ name }}'</a> wishlist.</span>
                 {% endblocktrans %}
-                <button type="submit" class="btn btn-sm float-right" data-loading-text="{% trans 'Removing...' %}">{% trans "Remove" %}</button>
+                <button type="submit" class="text-red-600 mx-2" data-loading-text="{% trans 'Removing...' %}">{% trans "Remove" %}</button>
             </form>
         {% endfor %}
     {% endwith %}
 {% else %}
-    <button class="btn btn-lg btn-wishlist align-bottom" disabled="disabled" title="{% trans 'Please login to add products to a wish list.' %}">{% trans 'Add to wish list' %}</button><br/>
+    <button class="bg-gray-800 text-white p-2 rounded-lg hover:text-white hover:bg-gray-700 my-2 px-2 w-44" disabled="disabled" title="{% trans 'Please login to add products to a wish list.' %}">{% trans 'Add to wish list' %}</button><br/>
 {% endif %}

@@ -8,13 +8,13 @@ main content area to split it into a sidebar and a content block
 <div class="{% block content_wrapper_classes %}container page{% endblock %}">
     <div class="page_inner">
         {% block breadcrumbs %}{% endblock %}
-        <div class="row">
+        <div class="flex flex-col md:flex-row justify-between">
 
-            <aside class="sidebar col-sm-4 col-md-3">
+            <aside class="w-1/3">
                 {% block column_left %}{% endblock %}
                 {% block column_left_extra %}{% endblock %}
             </aside>
-            <div class="col-sm-8 col-md-9">
+            <div class="w-full">
                 {% block header %}
                 <div class="page-header">
                     <h1>{% block headertext %}{% endblock %}</h1>

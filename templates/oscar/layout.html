@@ -3,6 +3,7 @@
 
 {% block styles %}
     <link rel="stylesheet" type="text/css" href="{% static "oscar/css/styles.css" %}" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 {% endblock %}
 
 {% block layout %}
@@ -37,8 +38,9 @@
             </div>
         </div>
     {% endblock %}
-
+    <div class="w-full">
     {% include "oscar/partials/footer.html" %}
+    </div>
 {% endblock %}
 
 {# Local scripts #}

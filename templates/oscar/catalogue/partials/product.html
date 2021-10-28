@@ -4,44 +4,44 @@
 {% load reviews_tags %}
 
 {% block product %}
-<article class="flex flex-col items-center justify-center w-full max-w-lg mx-auto shadow-sm">
-    {% block product_image %}
+    <article class="flex flex-col items-center justify-center max-w-lg shadow-sm w-64 m-2">
+        {% block product_image %}
             {% with image=product.primary_image %}
                 {% oscar_thumbnail image.original "x155" upscale=False as thumb %}
-                <a href="{{ product.get_absolute_url }}">
-                    <img src="{{ thumb.url }}" alt="{{ product.get_title }}" class="object-cover w-full rounded-md h-48 xl:h-80">
+                <a href="{{ product.get_absolute_url }}" class="w-full">
+                    <img src="{{ thumb.url }}" alt="{{ product.get_title }}" class="object-cover w-full rounded-md h-48">
                 </a>
             {% endwith %}
-    {% endblock %}
+        {% endblock %}
+{% comment %} 
+        {% block product_review %}
+            {% iffeature "reviews" %}
+                <p class="star-rating {{ product.rating|as_stars }}">
+                    <i class="fas fa-heartbeat"></i>
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heartbeat"></i>
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heartbeat"></i>
+                </p>
+            {% endiffeature %}
+        {% endblock %} {% endcomment %}
 
-    {% block product_review %}
-        {% iffeature "reviews" %}
-            <p class="star-rating {{ product.rating|as_stars }}">
-                <i class="fas fa-heartbeat"></i>
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-heartbeat"></i>
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-heartbeat"></i>
-            </p>
-        {% endiffeature %}
-    {% endblock %}
+        {% block product_title %}
+            <h3 class="mt-1">
+                <a href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">
+                    {{ product.get_title|truncatewords:3 }}
+                </a>
+            </h3>
+        {% endblock %}
 
-    {% block product_title %}
-        <h3 class="mt-1">
-            <a href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">
-                {{ product.get_title|truncatewords:3 }}
-            </a>
-        </h3>
-    {% endblock %}
-    
-    {% block product_price %}
-        <div class="product_price w-100 text-center">
-            {% include "oscar/catalogue/partials/stock_record.html" %}
-            {% if not product.is_parent and not product.has_options %}
-                {% include "oscar/catalogue/partials/add_to_basket_form_compact.html" %}
-            {% endif %}
-        </div>
-    {% endblock %}
-</article>
-    
+        {% block product_price %}
+            <div class="product_price w-100 text-center">
+                {% include "oscar/catalogue/partials/stock_record.html" %}
+                {% if not product.is_parent and not product.has_options %}
+                    {% include "oscar/catalogue/partials/add_to_basket_form_compact.html" %}
+                {% endif %}
+            </div>
+        {% endblock %}
+    </article>
+
 {% endblock %}

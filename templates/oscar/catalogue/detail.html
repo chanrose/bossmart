@@ -117,7 +117,7 @@
           <div class="py-2 align-middle inline-block w-full sm:px-6 lg:px-8">
             <div
               class="
-                shadow
+                shadow-sm
                 overflow-hidden
                 border-b border-gray-200
                 sm:rounded-lg
@@ -324,11 +324,11 @@
             <div class="sub-header my-3">
                 <h2>{% trans "Recommended items" %}</h2>
             </div>
-            <ul class="row list-unstyled mx-0">
+            <ul class="mx-0 my-2">
                 {% for product in recommended_products %}
-                <li class="col-sm-4 col-md-3 col-lg-3 p-1">
+                <div class="flex flex-row flex-wrap">
                     {% render_product product %}
-                </li>
+                    </div>
                 {% endfor %}
             </ul>
         {% endif %}

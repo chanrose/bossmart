@@ -96,12 +96,12 @@
     {% if products %}
         <section>
         <!-- not sure how this will be outputed hahah -->
-            <div class="grid grid-cols-1 gap-8 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div class="">
+                <div class="flex flex-row justify-start flex-wrap">
                 {% for product in products %}
-                <div class="flex flex-col items-center justify-center w-full max-w-lg mx-auto">
                     <p >{% render_product product %}</p>
-                </div>
                 {% endfor %}
+                </div>
             </div>
 
                <!-- previous one -->

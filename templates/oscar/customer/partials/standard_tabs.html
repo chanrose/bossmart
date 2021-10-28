@@ -1,26 +1,26 @@
 {% load i18n %}
 {% load display_tags %}
 
-<li class="p-2 w-44 rounded-lg {% if active_tab == 'profile' %} bg-gray-700 text-white {% endif %}">
+<li class="p-2 w-40 rounded-lg {% if active_tab == 'profile' %} bg-gray-700 text-white {% endif %}">
     <a href="{% url 'customer:profile-view' %}">{% trans "Profile" %}</a>
 </li>
-<li class="p-2 w-44 rounded-lg {% if active_tab == 'orders' %} bg-gray-700 text-white {% endif %}">
+<li class="p-2 w-40 rounded-lg {% if active_tab == 'orders' %} bg-gray-700 text-white {% endif %}">
     <a href="{% url 'customer:order-list' %}">{% trans "Order History" %}</a>
 </li>
-<li class="p-2 w-44 rounded-lg {% if active_tab == 'addresses' %} bg-gray-700 text-white {% endif %}">
+<li class="p-2 w-40 rounded-lg {% if active_tab == 'addresses' %} bg-gray-700 text-white {% endif %}">
     <a href="{% url 'customer:address-list' %}">{% trans "Address Book" %}</a>
 </li>
-<li class="p-2 w-44 rounded-lg {% if active_tab == 'emails' %} bg-gray-700 text-white {% endif %}">
+<li class="p-2 w-40 rounded-lg {% if active_tab == 'emails' %} bg-gray-700 text-white {% endif %}">
     <a href="{% url 'customer:email-list' %}">{% trans "Email History" %}</a>
 </li>
-<li class="p-2 w-44 rounded-lg {% if active_tab == 'alerts' %} bg-gray-700 text-white {% endif %}">
+<li class="p-2 w-40 rounded-lg {% if active_tab == 'alerts' %} bg-gray-700 text-white {% endif %}">
     <a href="{% url 'customer:alerts-list' %}" >{% trans "Product Alerts" %}</a>
 </li>
-<li class="p-2 w-44 rounded-lg {% if active_tab == 'notifications' %} bg-gray-700 text-white {% endif %}">
+<li class="p-2 w-40 rounded-lg {% if active_tab == 'notifications' %} bg-gray-700 text-white {% endif %}">
     <a href="{% url 'customer:notifications-inbox' %}">{% trans "Notifications" %}</a>
 </li>
 {% iffeature 'wishlists' %}
-    <li class="p-2 w-44 rounded-lg {% if active_tab == 'wishlists' %} bg-gray-700 text-white {% endif %}">
+    <li class="p-2 w-40 rounded-lg {% if active_tab == 'wishlists' %} bg-gray-700 text-white {% endif %}">
         <a href="{% url 'customer:wishlists-list' %}">{% trans "Wish Lists" %}</a>
     </li>
 {% endiffeature %}
