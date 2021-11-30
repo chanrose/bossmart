@@ -23,7 +23,9 @@ urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
     path(r'^checkout/paypal/', include('paypal.express.urls')),
     path(r'^admin/', admin.site.urls),
+    path('dashboard/accounts/', apps.get_app_config('accounts_dashboard').urls),
     path('', include(apps.get_app_config('oscar').urls[0]))
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

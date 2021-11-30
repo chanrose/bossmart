@@ -81,6 +81,8 @@ INSTALLED_APPS = [
     'oscar.apps.dashboard.vouchers.apps.VouchersDashboardConfig',
     'oscar.apps.dashboard.communications.apps.CommunicationsDashboardConfig',
     'oscar.apps.dashboard.shipping.apps.ShippingDashboardConfig',
+    'oscar_accounts.apps.AccountsConfig',
+    'oscar_accounts.dashboard.apps.AccountsDashboardConfig',
 
     # 3rd-party apps that oscar depends on
     'widget_tweaks',
@@ -89,6 +91,7 @@ INSTALLED_APPS = [
     'sorl.thumbnail',   # Default thumbnail backend, can be replaced
     'django_tables2',
     'paypal',
+
 ]
 
 SITE_ID = 1
@@ -185,6 +188,29 @@ USE_TZ = True
 
 OSCAR_SHOP_NAME = 'BOSS MART'
 OSCAR_DEFAULT_CURRENCY = 'USD'
+OSCAR_DASHBOARD_NAVIGATION.append(
+    {
+        'label': 'Accounts',
+        'icon': 'fas fa-globe',
+        'children': [
+            {
+                'label': 'Accounts',
+                'url_name': 'accounts_dashboard:accounts-list',
+            },
+            {
+                'label': 'Transfers',
+                'url_name': 'accounts_dashboard:transfers-list',
+            },
+            {
+                'label': 'Deferred income report',
+                'url_name': 'accounts_dashboard:report-deferred-income',
+            },
+            {
+                'label': 'Profit/loss report',
+                'url_name': 'accounts_dashboard:report-profit-loss',
+            },
+        ]
+    })
 
 
 # Static files (CSS, JavaScript, Images)
