@@ -15,7 +15,7 @@ from pathlib import Path
 import os
 location = lambda x: os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', x)
 
-
+os.environ['DJANGO_SETTINGS_MODULE'] = 'bossmart.settings'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -88,6 +88,7 @@ INSTALLED_APPS = [
     'treebeard',
     'sorl.thumbnail',   # Default thumbnail backend, can be replaced
     'django_tables2',
+    'paypal',
 ]
 
 SITE_ID = 1
@@ -138,7 +139,7 @@ WSGI_APPLICATION = 'bossmart.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': str(BASE_DIR / 'db.sqlite3'),
     }
 }
 
@@ -183,18 +184,20 @@ USE_L10N = True
 USE_TZ = True
 
 OSCAR_SHOP_NAME = 'BOSS MART'
-OSCAR_DEFAULT_CURRENCY = '฿'
+OSCAR_DEFAULT_CURRENCY = 'USD'
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    Path.joinpath(BASE_DIR, 'static')
-]
+# STATICFILES_DIRS = [
+#     Path.joinpath(BASE_DIR, 'static')
+# ]
+STATIC_ROOT = Path.joinpath(BASE_DIR, 'static')
 
-MEDIA_ROOT = "/media/"
+
+MEDIA_URL = "/media/"
 MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
 
 
@@ -202,3 +205,7 @@ MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+PAYPAL_API_USERNAME = 'sb-dxsk08269786_api1.business.example.com'
+PAYPAL_API_PASSWORD = 'VDBMBB5934Q7DDDX'
+PAYPAL_API_SIGNATURE = 'AWo3PWEUsiS7DAxa15-qsvrAT8NVAbIFun54JsvzWGyL.J2kVStOT7Ee'

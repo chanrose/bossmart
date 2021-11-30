@@ -21,7 +21,14 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
-    path('admin/', admin.site.urls),
+    path(r'^checkout/paypal/', include('paypal.express.urls')),
+    path(r'^admin/', admin.site.urls),
     path('', include(apps.get_app_config('oscar').urls[0]))
-] + static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+# ] + static(settings.MEDIA_URL,
+#                           document_root=settings.MEDIA_ROOT)
