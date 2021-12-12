@@ -20,8 +20,8 @@ class UserTestCase(TestCase):
         response = self.client.login(username=user.username, password=user.password)
         self.assertEquals(response.status_code, 200)
 
-    def test_update_password(self):
-        response = self.client.post(reverse('customer:change-password'), {'username': 'kate', 'password': 'kate123', 'email': 'kate@gmail.com'})
+    # def test_update_password(self):
+    #     response = self.client.post(reverse('customer:change-password'), {'username': 'kate', 'password': 'kate123', 'email': 'kate@gmail.com'})
 # class OrderTestCase(TestCase):
 #     def test_create_order(self):
 #         # Order.objects.create()
