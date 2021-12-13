@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import (
     AbstractUser, BaseUserManager, AbstractBaseUser)
 from oscar.core.compat import AUTH_USER_MODEL
+import jsonfield
 
 # Create your models here.
 class Account(models.Model):
@@ -12,6 +13,7 @@ class Account(models.Model):
         on_delete=models.CASCADE,
         related_name="accountuser")
     balance = models.FloatField()
+    storage = jsonfield.JSONField(null=True)
 
     def __str__(self):
         return f"{self.user}: {self.balance}"

@@ -1,0 +1,30 @@
+{% extends "oscar/customer/baseaccountpage.html" %}
+
+{% load i18n %}
+
+{% block tabcontent %}
+<div class="p-1 flex flex-row flex-wrap gap-2">
+    {% for item in Vouchers %}
+    <div class="w-80 mx-auto p-2">  
+        <details class="open:bg-white open:ring-1 open:ring-black/5 p-2 rounded-lg" open>    
+            <summary class="text-sm leading-6 text-gray-900 font-semibold select-none">   {{ item }} ({{ item.offers.first.name }})  </summary>    
+            <div class="mt-3 text-sm leading-6 text-gray-600">      
+                <p>{{ item.offers.first.condition }} </p>    
+    <div class="float-right"> 
+                <a class="p-1 border hover:bg-gray-700 hover:text-white no-underline cursor-pointer"> Redeem </a>
+                </div>
+                <p class="font-bold mt-1">{{ item.offers.first.benefit.value|add:"1000" }} pts. </p>
+            
+            </div>  
+        </details>
+    </div>
+   
+    {% endfor %}
+
+</div>
+    <div class="text-right">
+        <p>Available: {{ balance }} pts </p>
+    </div>
+<h1> Saved Voucher </h1>
+<hr />
+{% endblock %}

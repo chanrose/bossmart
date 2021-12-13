@@ -19,8 +19,7 @@ class EventHandler(object):
     # Core API
     # --------
 
-    def handle_shipping_event(self, order, event_type, lines,
-                              line_quantities, **kwargs):
+    def handle_shipping_event(self, order, event_type, lines, line_quantities, **kwargs):
         """
         Handle a shipping event for a given order.
 
@@ -37,8 +36,7 @@ class EventHandler(object):
         return self.create_shipping_event(
             order, event_type, lines, line_quantities, **kwargs)
 
-    def handle_payment_event(self, order, event_type, amount, lines=None,
-                             line_quantities=None, **kwargs):
+    def handle_payment_event(self, order, event_type, amount, lines=None, line_quantities=None, **kwargs):
         """
         Handle a payment event for a given order.
 
@@ -47,10 +45,8 @@ class EventHandler(object):
         refunds though where the payment event may be unrelated to a particular
         shipping event and doesn't directly correspond to a set of lines.
         """
-        self.validate_payment_event(
-            order, event_type, amount, lines, line_quantities, **kwargs)
-        return self.create_payment_event(
-            order, event_type, amount, lines, line_quantities, **kwargs)
+        self.validate_payment_event(order, event_type, amount, lines, line_quantities, **kwargs)
+        return self.create_payment_event(order, event_type, amount, lines, line_quantities, **kwargs)
 
     def handle_order_status_change(self, order, new_status, note_msg=None):
         """
@@ -60,6 +56,7 @@ class EventHandler(object):
         use-case is when an order is cancelled, which in some ways could be
         viewed as a shipping event affecting all lines.
         """
+        print('This is line 59 ----> ', 'Here it processed order status!!!')
         order.set_status(new_status)
         if note_msg:
             self.create_note(order, note_msg)
@@ -67,8 +64,7 @@ class EventHandler(object):
     # Validation methods
     # ------------------
 
-    def validate_shipping_event(self, order, event_type, lines,
-                                line_quantities, **kwargs):
+    def validate_shipping_event(self, order, event_type, lines, line_quantities, **kwargs):
         """
         Test if the requested shipping event is permitted.
 
@@ -86,8 +82,7 @@ class EventHandler(object):
         if errors:
             raise exceptions.InvalidShippingEvent(", ".join(errors))
 
-    def validate_payment_event(self, order, event_type, amount, lines=None,
-                               line_quantities=None, **kwargs):
+    def validate_payment_event(self, order, event_type, amount, lines=None, line_quantities=None, **kwargs):
         if lines and line_quantities:
             errors = []
             for line, qty in zip(lines, line_quantities):
@@ -102,8 +97,7 @@ class EventHandler(object):
     # -------------
     # These are to help determine the status of lines
 
-    def have_lines_passed_shipping_event(self, order, lines, line_quantities,
-                                         event_type):
+    def have_lines_passed_shipping_event(self, order, lines, line_quantities, event_type):
         """
         Test whether the passed lines and quantities have been through the
         specified shipping event.
@@ -119,8 +113,7 @@ class EventHandler(object):
     # Payment stuff
     # -------------
 
-    def calculate_payment_event_subtotal(self, event_type, lines,
-                                         line_quantities):
+    def calculate_payment_event_subtotal(self, event_type, lines, line_quantities):
         """
         Calculate the total charge for the passed event type, lines and line
         quantities.
@@ -160,8 +153,7 @@ class EventHandler(object):
                     # Need to account for some of this price instance and
                     # track how many we needed to skip and how many we settled
                     # for.
-                    qty_to_include = min(
-                        qty_to_consume - qty_consumed, qty_available)
+                    qty_to_include = min(qty_to_consume - qty_consumed, qty_available)
                     total += qty_to_include * price.price_incl_tax
                     # There can't be any left to skip if we've included some in
                     # our total
@@ -226,11 +218,9 @@ class EventHandler(object):
     # Model instance creation
     # -----------------------
 
-    def create_shipping_event(self, order, event_type, lines, line_quantities,
-                              **kwargs):
+    def create_shipping_event(self, order, event_type, lines, line_quantities, **kwargs):
         reference = kwargs.get('reference', '')
-        event = order.shipping_events.create(
-            event_type=event_type, notes=reference)
+        event = order.shipping_events.create(event_type=event_type, notes=reference)
         try:
             for line, quantity in zip(lines, line_quantities):
                 event.line_quantities.create(
@@ -240,11 +230,9 @@ class EventHandler(object):
             raise
         return event
 
-    def create_payment_event(self, order, event_type, amount, lines=None,
-                             line_quantities=None, **kwargs):
+    def create_payment_event(self, order, event_type, amount, lines=None, line_quantities=None, **kwargs):
         reference = kwargs.get('reference', "")
-        event = order.payment_events.create(
-            event_type=event_type, amount=amount, reference=reference)
+        event = order.payment_events.create(event_type=event_type, amount=amount, reference=reference)
         if lines and line_quantities:
             for line, quantity in zip(lines, line_quantities):
                 event.line_quantities.create(

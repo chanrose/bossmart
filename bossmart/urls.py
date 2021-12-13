@@ -24,6 +24,7 @@ urlpatterns = [
     path(r'^checkout/paypal/', include('paypal.express.urls')),
     path(r'admin/', admin.site.urls),
     path('dashboard/accounts/', apps.get_app_config('accounts_dashboard').urls),
+    path('extra/', include('extra.urls')),
     path('', include(apps.get_app_config('oscar').urls[0])),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

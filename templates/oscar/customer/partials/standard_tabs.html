@@ -19,7 +19,11 @@
 <li class="p-2 w-40 rounded-lg {% if active_tab == 'notifications' %} bg-gray-700 text-white {% endif %}">
     <a href="{% url 'customer:notifications-inbox' %}">{% trans "Notifications" %}</a>
 </li>
+<li class="p-2 w-40 rounded-lg {% if active_tab == 'voucher' %} bg-gray-700 text-white {% endif %}">
+    <a href="{% url 'extra:redeemable_voucher' %}">{% trans "Voucher" %}</a>
+</li>
 {% iffeature 'wishlists' %}
+
     <li class="p-2 w-40 rounded-lg {% if active_tab == 'wishlists' %} bg-gray-700 text-white {% endif %}">
         <a href="{% url 'customer:wishlists-list' %}">{% trans "Wish Lists" %}</a>
     </li>
