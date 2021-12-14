@@ -165,7 +165,7 @@
                                         <td class="text-right">{{ line.line_price_before_discounts_excl_tax|currency:order.currency }}</td>
                                         <td class="text-right">{{ line.line_price_before_discounts_incl_tax|currency:order.currency }}</td>
                                         <td>
-                                            <a href="{% url 'dashboard:order-line-detail' number=order.number line_id=line.id %}" class="btn btn-secondary">{% trans "View" %}</a>
+                                            <a href="{% url 'dashboard:order-line-detail' number=order.number line_id=line.id %}" class="btn bg-secondary text-white ">{% trans "View" %}</a>
                                         </td>
                                     </tr>
                                 {% endfor %}
@@ -346,7 +346,7 @@
                                 </div>
                             </div>
                             <div class="flex-nowrap">
-                                <button type="submit" class="btn btn-primary">{% trans "Go!" %}</button>
+                                <button type="submit" class="btn  btn-primary bg-primary ">{% trans "Go!" %}</button>
                             </div>
                         </div>
                     {% endblock line_actions %}
@@ -361,7 +361,7 @@
                                 {% include "oscar/dashboard/partials/form_fields.html" with form=order_status_form %}
                                 <input type="hidden" value="change_order_status" name="order_action" />
                                 <div class="flex-nowrap">
-                                    <button type="submit" class="btn btn-primary">{% trans "Change status" %}</button>
+                                    <button type="submit" class="btn  btn-primary bg-primary ">{% trans "Change status" %}</button>
                                 </div>
                             {% else %}
                                 {% trans "This order can't have its status changed." %}
@@ -522,7 +522,7 @@
                                     {% for field in order.shipping_address.active_address_fields %}
                                         {{ field }}<br/>
                                     {% endfor %}
-                                    <a class="btn btn-secondary" href="{% url 'dashboard:order-shipping-address' order.number %}">
+                                    <a class="btn bg-secondary text-white " href="{% url 'dashboard:order-shipping-address' order.number %}">
                                         {% trans "Update" %}
                                     </a>
                                 </td>
@@ -694,12 +694,12 @@
                                         <td>{{ note.message|linebreaks }}</td>
                                         <td>
                                             {% if note.is_editable %}
-                                                <a href="{% url 'dashboard:order-detail-note' number=order.number note_id=note.id %}#notes" class="btn btn-info">{% trans "Edit" %}</a>
+                                                <a href="{% url 'dashboard:order-detail-note' number=order.number note_id=note.id %}#notes" class="btn bg-info ">{% trans "Edit" %}</a>
                                                 <form method="post" class="float-left m-0">
                                                     {% csrf_token %}
                                                     <input type="hidden" name="order_action" value="delete_note" />
                                                     <input type="hidden" name="note_id" value="{{ note.id }}" />
-                                                    <input type="submit" value="{% trans "Delete" %}" class="btn btn-danger" />
+                                                    <input type="submit" value="{% trans "Delete" %}" class="btn bg-danger text-white  " />
                                                 </form>
                                             {% endif %}
                                         </td>
@@ -718,7 +718,7 @@
                         <input type="hidden" value="save_note" name="order_action" />
                         {% include "oscar/dashboard/partials/form_fields.html" with form=note_form %}
                         <div class="form-actions">
-                            <input type="submit" value="{% trans "Save note" %}" class="btn btn-primary" />
+                            <input type="submit" value="{% trans "Save note" %}" class="btn  btn-primary bg-primary " />
                             {% trans "Notes are only editable for 5 minutes after being saved." %}
                         </div>
                     </form>

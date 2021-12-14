@@ -52,3 +52,19 @@ class Voucher(LoginRequiredMixin, PageTitleMixin, generic.ListView):
         else:
             messages.info(request, "Sorry, your balance is not enough to redeem")
         return redirect("extra:redeemable_voucher")
+
+def claim_points(req):
+    acc = Account.objects.get(user=req.user)
+    orders = acc.user.orders.all()
+    for order in orders:
+        if order.status == "Shipped":
+            print("Order", order, "Status", order.status)
+            order.status = "Rewarded"
+            reward = float(order.total_excl_tax)*0.05
+            if order.currency == "฿":
+                reward = float(order.total_excl_tax)/30 * 0.05
+            acc.balance += reward
+            order.save()
+            messages.success(req, f"You have rewarded {reward:.2f} pts ")
+    acc.save()
+    return redirect("extra:redeemable_voucher")

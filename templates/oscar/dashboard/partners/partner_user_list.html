@@ -17,7 +17,7 @@
 {% block header %}
     <div class="page-header">
         <div class="btn-group float-right">
-            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+            <a class="btn  btn-primary bg-primary  dropdown-toggle" data-toggle="dropdown" href="#">
                 <i class="fas fa-plus-circle"></i>
                 {% trans 'Link a user' %}
             </a>
@@ -50,7 +50,7 @@
                         <td>
                             <form action="{% url 'dashboard:partner-user-unlink' partner_pk=partner.id user_pkuser.id %}" method="post">
                                 {% csrf_token %}
-                                <button type="submit" class="btn btn-danger" data-loading-text="{% trans 'Unlinking...' %}">{% trans 'Unlink user' %}</button>
+                                <button type="submit" class="btn bg-danger text-white  " data-loading-text="{% trans 'Unlinking...' %}">{% trans 'Unlink user' %}</button>
                             </form>
                         </td>
                     </tr>

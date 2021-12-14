@@ -3,18 +3,13 @@
 {% load category_tags %}
 
 {% block layout %}
+    {% include "oscar/partials/nav_accounts_tail.html" %}
 
-    <header class="header container">
-        <div class="page_inner">
-            <div class="row">
-                {% include "oscar/partials/brand.html" %}
-            </div><!-- /row -->
-        </div>
+        <div class="mx-auto mt-5 w-4/5 rounded-tl-md rounded-tr-md">
         {% block checkout_nav %}{% endblock %}
-    </header><!-- /header -->
+        </div>
+       <div class="bg-white mx-auto w-4/5 p-5">
 
-    <div class="container page">
-       <div class="page_inner">
             {% include 'oscar/partials/alert_messages.html' %}
 
             <div class="sub-header">

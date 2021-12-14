@@ -104,15 +104,15 @@
                             {% trans "Cancel" %}
                         </a>
                         {% trans "or" %}
-                        <button class="btn btn-secondary" name="action" type="submit" value="continue" data-loading-text="{% trans 'Saving...' %}">
+                        <button class="btn bg-secondary text-white " name="action" type="submit" value="continue" data-loading-text="{% trans 'Saving...' %}">
                             {% trans "Save and continue editing" %}
                         </button>
-                        <button class="btn btn-primary" name="action" type="submit" value="save" data-loading-text="{% trans 'Saving...' %}">
+                        <button class="btn  btn-primary bg-primary " name="action" type="submit" value="save" data-loading-text="{% trans 'Saving...' %}">
                             {% trans "Save" %}
                         </button>
                     </div>
                     {% if category %}
-                        <a class="btn btn-success" href="{{ category.get_absolute_url }}">{% trans "View on site" %}</a>
+                        <a class="btn bg-success text-white " href="{{ category.get_absolute_url }}">{% trans "View on site" %}</a>
                     {% endif %}
                 </div>
             </div>

@@ -42,12 +42,12 @@
         <form action="{% url 'catalogue:reviews-vote' product_slug=product.slug product_pk=product.pk pk=review.pk %}" method="post" class="vote_agree" >
             {% csrf_token %}
             <input type="hidden" name="delta" value="1"/>
-            <button type="submit" class="btn btn-success btn-sm" data-loading-text="{% trans 'Submitting...' %}">{% trans "Yes" %}</button>
+            <button type="submit" class="btn bg-success text-white  btn-sm" data-loading-text="{% trans 'Submitting...' %}">{% trans "Yes" %}</button>
         </form>
         <form  action="{% url 'catalogue:reviews-vote' product_slug=product.slug product_pk=product.pk pk=review.pk %}" method="post">
             {% csrf_token %}
             <input type="hidden" name="delta" value="-1"/>
-            <button type="submit" class="btn btn-danger btn-sm" data-loading-text="{% trans 'Submitting...' %}">{% trans "No" %}</button>
+            <button type="submit" class="btn bg-danger text-white   btn-sm" data-loading-text="{% trans 'Submitting...' %}">{% trans "No" %}</button>
         </form>
     {% endif %}
 

@@ -38,8 +38,8 @@
                 {% include "oscar/partials/form_fields.html" with form=form style='horizontal' %}
                 <div class="form-group row">
                     <div class="offset-sm-4 col-sm-8">
-                        <button type="submit" class="btn btn-primary" data-loading-text="{% trans 'Filtering...' %}">{% trans 'Filter results' %}</button>
-                        <a href="{% url 'customer:order-list' %}" class="btn btn-secondary">{% trans 'Reset' %}</a>
+                        <button type="submit" class="btn  btn-primary bg-primary " data-loading-text="{% trans 'Filtering...' %}">{% trans 'Filter results' %}</button>
+                        <a href="{% url 'customer:order-list' %}" class="btn bg-secondary text-white ">{% trans 'Reset' %}</a>
                     </div>
                 </div>
             </form>

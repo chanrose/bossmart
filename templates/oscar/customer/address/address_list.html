@@ -27,8 +27,8 @@
                         </td>
                         <td>
                             <div class="btn-group">
-                                <a class="btn btn-secondary" href="{% url 'customer:address-detail' pk=address.id %}">{% trans 'Edit' %}</a>
-                                <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"></button>
+                                <a class="btn bg-secondary text-white " href="{% url 'customer:address-detail' pk=address.id %}">{% trans 'Edit' %}</a>
+                                <button class="btn bg-secondary text-white  dropdown-toggle" data-toggle="dropdown"></button>
                                 <div class="dropdown-menu">
                                     <a href="{% url 'customer:address-delete' pk=address.id %}" class="dropdown-item">
                                         {% trans 'Delete' %}
@@ -55,6 +55,6 @@
         <p>{% trans 'There are no addresses in your address book.' %}</p>
     {% endif %}
     <p>
-        <a href="{% url 'customer:address-create' %}" class="btn btn-primary">{% trans 'Add a new address' %}</a>
+        <a href="{% url 'customer:address-create' %}" class="btn  btn-primary bg-primary ">{% trans 'Add a new address' %}</a>
     </p>
 {% endblock tabcontent %}

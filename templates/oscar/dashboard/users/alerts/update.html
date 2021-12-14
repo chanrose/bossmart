@@ -28,8 +28,8 @@
             <form method="post" class="form-inline">
                 {% csrf_token %}
                 {% include 'oscar/dashboard/partials/form_fields_inline.html' %}
-                <button type='submit' class="btn btn-primary" data-loading-text="{% trans 'Saving...' %}">{% trans "Save" %}</button>
-                <a href="{% url 'dashboard:user-alert-list' %}" class="btn btn-secondary">{% trans "cancel" %}</a>
+                <button type='submit' class="btn  btn-primary bg-primary " data-loading-text="{% trans 'Saving...' %}">{% trans "Save" %}</button>
+                <a href="{% url 'dashboard:user-alert-list' %}" class="btn bg-secondary text-white ">{% trans "cancel" %}</a>
             </form>
         </div>
     </div>

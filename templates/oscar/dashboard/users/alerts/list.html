@@ -28,9 +28,9 @@
     <div class="card card-body">
         <form method="get" class="form-inline">
             {% include "oscar/dashboard/partials/form_fields_inline.html" with form=form %}
-            <button type="submit" class="btn btn-primary mr-2" data-loading-text="{% trans 'Searching...' %}">{% trans "Search" %}</button>
+            <button type="submit" class="btn  btn-primary bg-primary  mr-2" data-loading-text="{% trans 'Searching...' %}">{% trans "Search" %}</button>
             {% trans "or" %}
-            <a href="{% url 'dashboard:user-alert-list' %}" class="btn btn-secondary ml-2">{% trans "reset" %}</a>
+            <a href="{% url 'dashboard:user-alert-list' %}" class="btn bg-secondary text-white  ml-2">{% trans "reset" %}</a>
         </form>
     </div>
 
@@ -68,7 +68,7 @@
                     <td>
                         <div class="btn-toolbar">
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn bg-secondary text-white  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {% trans "Actions" %}
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">

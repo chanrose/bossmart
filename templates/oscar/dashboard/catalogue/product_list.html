@@ -35,7 +35,7 @@
         <div class="card card-body">
             <form action="{% url 'dashboard:catalogue-product-create' %}" method="get" class="form-inline">
                 {% include "oscar/dashboard/partials/form_fields_inline.html" with form=productclass_form %}
-                <button class="btn btn-primary" type="submit" data-loading-text="{% trans 'Submitting...' %}">
+                <button class="btn  btn-primary bg-primary " type="submit" data-loading-text="{% trans 'Submitting...' %}">
                     <i class="fas fa-plus-circle"></i> {% trans "New Product" %}
                 </button>
             </form>
@@ -59,7 +59,7 @@
                 {% endfor %}
 
                 {% include "oscar/dashboard/partials/form_fields_inline.html" with form=form %}
-                <button type="submit" class="btn btn-primary" data-loading-text="{% trans 'Searching...' %}"><i class="fas fa-search"></i> {% trans "Search" %}</button>
+                <button type="submit" class="btn  btn-primary bg-primary " data-loading-text="{% trans 'Searching...' %}"><i class="fas fa-search"></i> {% trans "Search" %}</button>
             </form>
         </div>
     {% endblock %}

@@ -23,12 +23,12 @@
         <form id="status_form" class="float-right" method="post">
             {% csrf_token %}
             {% if offer.is_suspended %}
-                <button type="submit" class="btn btn-success" name="unsuspend" data-loading-text="{% trans 'Reinstating...' %}">{% trans "Reinstate offer" %}</button>
+                <button type="submit" class="btn bg-success text-white " name="unsuspend" data-loading-text="{% trans 'Reinstating...' %}">{% trans "Reinstate offer" %}</button>
             {% else %}
-                <button type="submit" class="btn btn-secondary" name="suspend" data-loading-text="{% trans 'Suspending...' %}">{% trans "Suspend offer" %}</button>
+                <button type="submit" class="btn bg-secondary text-white " name="suspend" data-loading-text="{% trans 'Suspending...' %}">{% trans "Suspend offer" %}</button>
             {% endif %}
             {% if not offer.vouchers.exists %}
-            <a class="btn btn-danger" href="{% url 'dashboard:offer-delete' pk=offer.pk %}">{% trans "Delete offer" %}</a>
+            <a class="btn bg-danger text-white  " href="{% url 'dashboard:offer-delete' pk=offer.pk %}">{% trans "Delete offer" %}</a>
             {% endif %}
         </form>
         <h1>{{ offer.name }}</h1>
@@ -61,7 +61,7 @@
             <tr>
                 <th>{% trans "Name" %}</th>
                 <td>{{ offer.name }}</td>
-                <td rowspan="3"><a id="edit_metadata" href="{% url 'dashboard:offer-metadata' pk=offer.pk %}" class="btn btn-secondary">{% trans "Edit" %}</a></td>
+                <td rowspan="3"><a id="edit_metadata" href="{% url 'dashboard:offer-metadata' pk=offer.pk %}" class="btn bg-secondary text-white ">{% trans "Edit" %}</a></td>
             </tr>
             <tr>
                 <th>{% trans "Description" %}</th>
@@ -74,12 +74,12 @@
             <tr>
                 <th>{% trans "Incentive" %}</th>
                 <td>{{ offer.benefit.description|safe }}</td>
-                <td><a href="{% url 'dashboard:offer-benefit' pk=offer.pk %}" class="btn btn-secondary">{% trans "Edit" %}</a></td>
+                <td><a href="{% url 'dashboard:offer-benefit' pk=offer.pk %}" class="btn bg-secondary text-white ">{% trans "Edit" %}</a></td>
             </tr>
             <tr>
                 <th>{% trans "Condition" %}</th>
                 <td>{{ offer.condition.description|safe }}</td>
-                <td><a href="{% url 'dashboard:offer-condition' pk=offer.pk %}" class="btn btn-secondary">{% trans "Edit" %}</a></td>
+                <td><a href="{% url 'dashboard:offer-condition' pk=offer.pk %}" class="btn bg-secondary text-white ">{% trans "Edit" %}</a></td>
             </tr>
             <tr>
                 <th>{% trans "Restrictions" %}</th>
@@ -94,7 +94,7 @@
                         {% endif %}
                     {% endfor %}
                 </td>
-                <td><a href="{% url 'dashboard:offer-restrictions' pk=offer.pk %}" class="btn btn-secondary">{% trans "Edit" %}</a></td>
+                <td><a href="{% url 'dashboard:offer-restrictions' pk=offer.pk %}" class="btn bg-secondary text-white ">{% trans "Edit" %}</a></td>
             </tr>
             {% if offer.is_voucher_offer_type %}
             <tr>

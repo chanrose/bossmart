@@ -41,7 +41,7 @@
                         <td>{{ commtype.name }}</td>
                         <td>{{ commtype.category }}</td>
                         <td>
-                            <a class="btn btn-success" href="{% url 'dashboard:comms-update' commtype.code %}">{% trans "Edit" %}</a>
+                            <a class="btn bg-success text-white " href="{% url 'dashboard:comms-update' commtype.code %}">{% trans "Edit" %}</a>
                         </td>
                     </tr>
                 {% endfor %}

@@ -16,8 +16,8 @@
                         <td>{{ wishlist.lines.count }}</td>
                         <td>
                             <div class="btn-group">
-                                <a class="btn btn-secondary" href="{% url 'customer:wishlists-detail' key=wishlist.key %}">{% trans 'View' %}</a>
-                                <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"></button>
+                                <a class="btn bg-secondary text-white " href="{% url 'customer:wishlists-detail' key=wishlist.key %}">{% trans 'View' %}</a>
+                                <button class="btn bg-secondary text-white  dropdown-toggle" data-toggle="dropdown"></button>
                                 <div class="dropdown-menu">
                                     <a href="{% url 'customer:wishlists-update' key=wishlist.key %}" class="dropdown-item">
                                         {% trans 'Wish list settings' %}
@@ -40,7 +40,7 @@
     {% endif %}
 
     <p>
-        <a href="{% url 'customer:wishlists-create' %}" class="btn btn-primary">{% trans 'Create a new wish list' %}</a>
+        <a href="{% url 'customer:wishlists-create' %}" class="btn  btn-primary bg-primary ">{% trans 'Create a new wish list' %}</a>
     </p>
 
 {% endblock tabcontent %}

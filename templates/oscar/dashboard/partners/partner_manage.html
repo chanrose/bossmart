@@ -50,7 +50,7 @@
                             <td>
                                 <form action="{% url 'dashboard:partner-user-unlink' partner_pk=partner.id user_pk=user.id %}" method="post">
                                     {% csrf_token %}
-                                    <button type="submit" class="btn btn-danger" data-loading-text="{% trans 'Unlinking...' %}">{% trans 'Unlink user' %}</button>
+                                    <button type="submit" class="btn bg-danger text-white  " data-loading-text="{% trans 'Unlinking...' %}">{% trans 'Unlink user' %}</button>
                                 </form>
                             </td>
                         </tr>
@@ -61,8 +61,8 @@
             <p>{% trans "No users linked." %}</p>
         {% endif %}
         <div class="form-group">
-            <a class="btn btn-info" href="{% url 'dashboard:partner-user-create' partner_pk=partner.pk %}" >{% trans "Link a new user" %}</a>
-            <a class="btn btn-info" href="{% url 'dashboard:partner-user-select' partner_pk=partner.pk %}" >{% trans "Link an existing user" %}</a>
+            <a class="btn bg-info " href="{% url 'dashboard:partner-user-create' partner_pk=partner.pk %}" >{% trans "Link a new user" %}</a>
+            <a class="btn bg-info " href="{% url 'dashboard:partner-user-select' partner_pk=partner.pk %}" >{% trans "Link an existing user" %}</a>
         </div>
     </div>
 {% endblock dashboard_content %}

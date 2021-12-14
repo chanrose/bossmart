@@ -40,7 +40,7 @@
         <form method="post">
             {% csrf_token %}
             <div class="form-actions">
-                <button class="btn btn-danger" type="submit" data-loading-text="{% trans 'Deleting...' %}">{% trans "Delete" %}</button> {% trans "or" %}
+                <button class="btn bg-danger text-white  " type="submit" data-loading-text="{% trans 'Deleting...' %}">{% trans "Delete" %}</button> {% trans "or" %}
                 <a href="{% if not voucher.voucher_set %}{% url 'dashboard:voucher-list' %}{% else %}{% url 'dashboard:voucher-set-detail' pk=voucher.voucher_set.pk %}{% endif %}">{% trans "cancel" %}</a>
             </div>
         </form>

@@ -27,7 +27,7 @@
 
 </div>
     <div class="text-right">
-        <p>Available: {{ balance }} pts </p>
+        <p>Available: {{ balance|floatformat:2 }} pts | <a class="no-underline bg-gray-800 text-white p-2 rounded-lg" href="{% url 'extra:claim_points' %}"> Claim Points </a> </p>
     </div>
 <h1> Saved Voucher </h1>
 <hr />

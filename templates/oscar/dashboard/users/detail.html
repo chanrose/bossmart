@@ -86,7 +86,7 @@
                             <td>
                                 <form id="password_reset_form" action="{% url 'dashboard:user-password-reset' pk=customer.id %}" method="post">
                                     {% csrf_token %}
-                                    <button type="submit" class="btn btn-primary" data-loading-text="{% trans 'Sending...' %}">{% trans 'Send password reset email' %}</button>
+                                    <button type="submit" class="btn  btn-primary bg-primary " data-loading-text="{% trans 'Sending...' %}">{% trans 'Send password reset email' %}</button>
                                 </form>
                             </td>
                         </tr>
@@ -134,7 +134,7 @@
                                                 <td>{{ order.basket_total_incl_tax|currency }}</td>
                                                 <td>{{ order.date_placed|date }}</td>
                                                 <td>{{ order.status|default:"-" }}</td>
-                                                <td><a href="{% url 'dashboard:order-detail' number=order.number %}" class="btn btn-info">{% trans "View" %}</a></td>
+                                                <td><a href="{% url 'dashboard:order-detail' number=order.number %}" class="btn bg-info ">{% trans "View" %}</a></td>
                                             </tr>
                                         {% endfor %}
                                     {% else %}

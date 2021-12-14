@@ -55,7 +55,7 @@
                     <form method="post" action="{% url 'checkout:shipping-method' %}">
                         {% csrf_token %}
                         <input type="hidden" name="method_code" value="{{ method.code }}" />
-                        <button type="submit" class="btn btn-lg btn-primary float-right" data-loading-text="{% trans 'Submitting...' %}">{% trans "Select option" %}</button>
+                        <button type="submit" class="btn btn-lg  btn-primary bg-primary  float-right" data-loading-text="{% trans 'Submitting...' %}">{% trans "Select option" %}</button>
                     </form>
                 </div>
             </div>

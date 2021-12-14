@@ -31,7 +31,7 @@
     <div class="card card-body">
         <form method="get" class="form-inline">
             {% include 'oscar/dashboard/partials/form_fields_inline.html' with form=form %}
-            <button type="submit" class="btn btn-primary" data-loading-text="{% trans 'Searching...' %}">{% trans "Search" %}</button>
+            <button type="submit" class="btn  btn-primary bg-primary " data-loading-text="{% trans 'Searching...' %}">{% trans "Search" %}</button>
         </form>
     </div>
 
@@ -47,7 +47,7 @@
                             {% trans "Update status of selected reviews" %}
                             {{ review_form.status }}
                             <input type="hidden" name="action" value="update_selected_review_status" />
-                            <button type="submit" name="update" class="btn btn-success" data-loading-text="{% trans 'Updating...' %}">{% trans "Update" %}</button>
+                            <button type="submit" name="update" class="btn bg-success text-white " data-loading-text="{% trans 'Updating...' %}">{% trans "Update" %}</button>
                         </div>
                     </div>
                 </caption>
@@ -100,7 +100,7 @@
                                 <td>
                                     <div class="btn-toolbar">
                                         <div class="dropdown">
-                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <button class="btn bg-secondary text-white  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 {% trans "Actions" %}
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">

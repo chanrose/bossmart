@@ -80,7 +80,7 @@
                 {% iffeature "reviews" %}
                     <td>
                         {% if line.product|is_review_permitted:user %}
-                            <a href="{% url 'catalogue:reviews-add' product_slug=line.product.slug product_pk=line.product.id %}" class="btn btn-primary">{% trans 'Write a review' %}</a>
+                            <a href="{% url 'catalogue:reviews-add' product_slug=line.product.slug product_pk=line.product.id %}" class="btn  btn-primary bg-primary ">{% trans 'Write a review' %}</a>
                         {% endif %}
                     </td>
                 {% endiffeature %}

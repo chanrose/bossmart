@@ -62,7 +62,7 @@
                                     <div class="input-group {% if form.errors %}error{% endif %}">
                                         {% render_field form.quantity class+="form-control" %}
                                     <div class="input-group-append">
-                                        <button class="btn btn-secondary" type="submit" data-loading-text="{% trans 'Updating...' %}">{% trans "Update" %}</button>
+                                        <button class="btn bg-secondary text-white " type="submit" data-loading-text="{% trans 'Updating...' %}">{% trans "Update" %}</button>
                                     </div>
                                     </div>
                                 </div>
@@ -128,13 +128,13 @@
                     <div class="sub-header">
                         <h2>{% trans "Voucher/promo code" %}</h2>
                     </div>
-                    <p id="voucher_form_link"><a href="#voucher" class="btn btn-secondary btn-full">{% trans "I have a voucher code..." %}</a></p>
+                    <p id="voucher_form_link"><a href="#voucher" class="btn bg-secondary text-white  btn-full">{% trans "I have a voucher code..." %}</a></p>
 
                     <div id="voucher_form_container" style="display:none">
                         <form id="voucher_form" action="{% url 'basket:vouchers-add' %}" method="post">
                             {% csrf_token %}
                             {% include "oscar/partials/form_fields.html" with form=voucher_form %}
-                            <button type="submit" class="btn btn-info" data-loading-text="{% trans 'Adding...' %}">{% trans "Add voucher" %}</button>
+                            <button type="submit" class="btn bg-info " data-loading-text="{% trans 'Adding...' %}">{% trans "Add voucher" %}</button>
                             {% trans "or" %} <a href="#" id="voucher_form_cancel">{% trans "cancel" %}</a>
                         </form>
                     </div>
@@ -158,12 +158,12 @@
     {% if anon_checkout_allowed or request.user.is_authenticated %}
         <a href="{% url 'paypal-redirect' %}"><img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" align="left" style="margin-right:7px;"></a>
     {% endif %}
-    <a href="{% url 'checkout:index' %}" class="pull-right btn btn-large btn-primary">{% trans "Proceed to checkout with Paypal" %}</a>
+    <a href="{% url 'checkout:index' %}" class="pull-right btn btn-large  btn-primary bg-primary ">{% trans "Proceed to checkout with Paypal" %}</a>
 </div>
         <!-- <div class="form-group clearfix"> -->
         <!--     <div class="row"> -->
         <!--         <div class="col-sm-4 offset-sm-8"> -->
-        <!--             <a href="{% url 'checkout:index' %}" class="btn btn-lg btn-primary btn-block">{% trans "Proceed to checkout" %}</a> -->
+        <!--             <a href="{% url 'checkout:index' %}" class="btn btn-lg  btn-primary bg-primary  btn-block">{% trans "Proceed to checkout" %}</a> -->
         <!--         </div> -->
         <!--     </div> -->
         <!-- </div> -->

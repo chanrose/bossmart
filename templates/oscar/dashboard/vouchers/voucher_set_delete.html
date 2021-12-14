@@ -32,7 +32,7 @@
         <form method="post">
             {% csrf_token %}
             <div class="form-actions">
-                <button class="btn btn-danger" type="submit" data-loading-text="{% trans 'Deleting...' %}">{% trans "Delete" %}</button> {% trans "or" %}
+                <button class="btn bg-danger text-white  " type="submit" data-loading-text="{% trans 'Deleting...' %}">{% trans "Delete" %}</button> {% trans "or" %}
                 <a href="{% url 'dashboard:voucher-set-list' %}">{% trans "cancel" %}</a>
             </div>
         </form>

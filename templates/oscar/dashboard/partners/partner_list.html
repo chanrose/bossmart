@@ -17,7 +17,7 @@
 
 {% block header %}
     <div class="page-header">
-        <a href="{% url 'dashboard:partner-create' %}" class="btn btn-primary float-right"><i class="fas fa-plus-circle"></i> {% trans "Create new partner" %}</a>
+        <a href="{% url 'dashboard:partner-create' %}" class="btn  btn-primary bg-primary  float-right"><i class="fas fa-plus-circle"></i> {% trans "Create new partner" %}</a>
         <h1>{% trans "Partners" %}</h1>
     </div>
 {% endblock header %}
@@ -26,9 +26,9 @@
     <div class="card card-body bg-light">
         <form method="get" class="form-inline">
             {% include 'oscar/dashboard/partials/form_fields_inline.html' with form=form %}
-            <button type="submit" class="btn btn-primary" data-loading-text="{% trans 'Searching...' %}">{% trans "Search" %}</button>
+            <button type="submit" class="btn  btn-primary bg-primary " data-loading-text="{% trans 'Searching...' %}">{% trans "Search" %}</button>
             {% if is_filtered %}
-                <a class="btn btn-secondary" href="{% url 'dashboard:partner-list' %}" >{% trans "Reset" %}</a>
+                <a class="btn bg-secondary text-white " href="{% url 'dashboard:partner-list' %}" >{% trans "Reset" %}</a>
             {% endif %}
         </form>
     </div>
@@ -84,7 +84,7 @@
                         <td>
                             <div class="btn-toolbar">
                                 <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn bg-secondary text-white  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         {% trans "Actions" %}
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">

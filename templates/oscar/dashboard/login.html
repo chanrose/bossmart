@@ -30,7 +30,7 @@
                 {% render_field form.password class="form-control" %}
             </div>
 
-            <input type="submit" class="btn btn-primary btn-lg" value="{% trans "Login" %}">
+            <input type="submit" class="btn  btn-primary bg-primary  btn-lg" value="{% trans "Login" %}">
             <input type="hidden" name="next" value="{{ next }}">
             {% csrf_token %}
         </form>

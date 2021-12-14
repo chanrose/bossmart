@@ -126,11 +126,11 @@
 
     <div class="form-actions">
         {% if not voucher.voucher_set %}
-        <a class="btn btn-primary" href="{% url 'dashboard:voucher-update' pk=voucher.id %}">{% trans "Edit" %}</a> {% trans "or" %}
+        <a class="btn  btn-primary bg-primary " href="{% url 'dashboard:voucher-update' pk=voucher.id %}">{% trans "Edit" %}</a> {% trans "or" %}
         {% else %}
-        <a class="btn btn-primary" href="{% url 'dashboard:voucher-set-update' pk=voucher.voucher_set.pk %}">{% trans "Edit set" %}</a> {% trans "or" %}
+        <a class="btn  btn-primary bg-primary " href="{% url 'dashboard:voucher-set-update' pk=voucher.voucher_set.pk %}">{% trans "Edit set" %}</a> {% trans "or" %}
         {% endif %}
-        <a class="btn btn-danger" href="{% url 'dashboard:voucher-delete' pk=voucher.id %}">
+        <a class="btn bg-danger text-white  " href="{% url 'dashboard:voucher-delete' pk=voucher.id %}">
         {% if not voucher.voucher_set %}
         {% trans "Delete" %}
         {% else %}

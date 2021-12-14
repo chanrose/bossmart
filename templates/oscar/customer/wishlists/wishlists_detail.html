@@ -72,10 +72,10 @@
                                 <td>
                                     <div class="btn-group">
                                         {% if product %}
-                                            <a class="btn btn-secondary" href="{{ line.product.get_absolute_url }}">{% trans 'View product' %}</a>
-                                            <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"></button>
+                                            <a class="btn bg-secondary text-white " href="{{ line.product.get_absolute_url }}">{% trans 'View product' %}</a>
+                                            <button class="btn bg-secondary text-white  dropdown-toggle" data-toggle="dropdown"></button>
                                         {% else %}
-                                            <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" href="#">
+                                            <a class="btn bg-secondary text-white  dropdown-toggle" data-toggle="dropdown" href="#">
                                                 {% trans 'Actions' %}
                                             </a>
                                         {% endif %}
@@ -103,7 +103,7 @@
                     <tr>
                         <td colspan="2"></td>
                         <td>
-                            <button class="btn btn-primary" type="submit" data-loading-text="{% trans 'Updating...' %}">{% trans "Update quantities" %}</button>
+                            <button class="btn  btn-primary bg-primary " type="submit" data-loading-text="{% trans 'Updating...' %}">{% trans "Update quantities" %}</button>
                         </td>
                         <td></td>
                     </tr>

@@ -20,7 +20,7 @@
 
 {% block header %}
     <div class="page-header">
-        <a href="{% url 'dashboard:offer-metadata' %}" class="btn btn-primary float-right"><i class="fas fa-plus-circle"></i> {% trans "Create new offer" %}</a>
+        <a href="{% url 'dashboard:offer-metadata' %}" class="btn  btn-primary bg-primary  float-right"><i class="fas fa-plus-circle"></i> {% trans "Create new offer" %}</a>
         <h1>{% trans "Offers" %}</h1>
     </div>
 {% endblock header %}
@@ -51,9 +51,9 @@
                     <input type="hidden" name="{{ field.name }}" value="{{ field.value|default_if_none:'' }}">
                 {% endif %}
             {% endfor %}
-            <button type="submit" class="btn btn-primary mr-2" data-loading-text="{% trans 'Searching...' %}">{% trans "Search" %}</button>
+            <button type="submit" class="btn  btn-primary bg-primary  mr-2" data-loading-text="{% trans 'Searching...' %}">{% trans "Search" %}</button>
             <a data-toggle="modal" data-target="#SearchModal" href="#" class="mr-2">{% trans "Advanced Search" %}</a>
-            <a href="{% url 'dashboard:offer-list' %}" class="btn btn-secondary">{% trans "Reset" %}</a>
+            <a href="{% url 'dashboard:offer-list' %}" class="btn bg-secondary text-white ">{% trans "Reset" %}</a>
         </form>
 
         {# Search modal, if there are form errors the form is automatically openend #}
@@ -132,7 +132,7 @@
                         <td>
                             <div class="btn-toolbar">
                                 <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn bg-secondary text-white  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         {% trans "Actions" %}
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">

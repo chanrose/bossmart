@@ -48,7 +48,7 @@
                                         {% if editable %}
                                             <form action="{% url 'basket:vouchers-remove' pk=discount.voucher.id %}" method="POST">
                                                 {% csrf_token %}
-                                                <input type="submit" value="{% trans 'Remove' %}" class="btn btn-sm btn-danger" />
+                                                <input type="submit" value="{% trans 'Remove' %}" class="btn btn-sm bg-danger text-white  " />
                                             </form>
                                         {% endif %}
                                     </td>

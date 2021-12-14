@@ -12,7 +12,7 @@
 
 {% block header %}
     <div class="page-header">
-        <a href="{% url 'dashboard:catalogue-class-create' %}" class="btn btn-primary float-right">
+        <a href="{% url 'dashboard:catalogue-class-create' %}" class="btn  btn-primary bg-primary  float-right">
             <i class="fas fa-plus-circle"></i> {% trans "Create new product type" %}</a>
         <h1>{% trans "Product types" %}</h1>
     </div>
@@ -39,7 +39,7 @@
                         <td>
                             <div class="btn-toolbar">
                                 <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn bg-secondary text-white  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         {% trans "Actions" %}
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">

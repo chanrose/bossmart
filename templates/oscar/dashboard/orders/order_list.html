@@ -48,7 +48,7 @@
                     {% endif %}
                 {% endif %}
             {% endfor %}
-            <input type="submit" value="{% trans "Search" %}" class="btn btn-primary mr-2" />
+            <input type="submit" value="{% trans "Search" %}" class="btn  btn-primary bg-primary  mr-2" />
             <a data-toggle="modal" data-target="#SearchModal" href="#">{% trans "Advanced Search" %}</a>
         </form>
 
@@ -83,7 +83,7 @@
                     <div class="float-right">
                         <div class="form-inline">
                             <label>{% trans "Download selected orders as a CSV" %}</label>
-                            <button type="submit" class="btn btn-primary" name="action" value="download_selected_orders" data-loading-text="{% trans 'Submitting...' %}">{% trans "Download" %}</button>
+                            <button type="submit" class="btn  btn-primary bg-primary " name="action" value="download_selected_orders" data-loading-text="{% trans 'Submitting...' %}">{% trans "Download" %}</button>
                         </div>
                     </div>
                 </caption>
@@ -123,7 +123,7 @@
                         <td>{{ order.billing_address|default:"-" }}</td>
                         <td>{{ order.date_placed }}</td>
                         <td>
-                            <a class="btn btn-secondary" href="{% url 'dashboard:order-detail' number=order.number %}">{% trans "View" %}</a>
+                            <a class="btn bg-secondary text-white " href="{% url 'dashboard:order-detail' number=order.number %}">{% trans "View" %}</a>
                         </td>
                     </tr>
                 {% endfor %}
@@ -145,7 +145,7 @@
                             </div>
                         </div>
                         <div class="flex-nowrap">
-                            <button type="submit" name="action" value="change_order_statuses" class="btn btn-primary" data-loading-text="{% trans 'Changing...' %}">
+                            <button type="submit" name="action" value="change_order_statuses" class="btn  btn-primary bg-primary " data-loading-text="{% trans 'Changing...' %}">
                                 {% trans "Change status" %}
                             </button>
                         </div>
