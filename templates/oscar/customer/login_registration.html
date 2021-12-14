@@ -27,7 +27,7 @@
                 {% csrf_token %}
                 {% include "oscar/partials/form_fields.html" with form=login_form %}
                 <p><a href="{% url 'password-reset' %}">{% trans "I've forgotten my password" %}</a></p>
-                <button name="login_submit" type="submit" value="Log In" class="btn btn-lg btn-primary" data-loading-text="{% trans "Logging in..." %}">{% trans 'Log In' %}</button>
+                <button name="login_submit" type="submit" value="Log In" class="px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80" data-loading-text="{% trans "Logging in..." %}">{% trans 'Log In' %}</button>
             </form>
         </div>
         <div class="col-sm-6 register_form">
@@ -35,7 +35,7 @@
                 <h2>{% trans 'Register' %}</h2>
                 {% csrf_token %}
                 {% include "oscar/partials/form_fields.html" with form=registration_form %}
-                <button name="registration_submit" type="submit" value="Register" class="btn btn-lg btn-primary" data-loading-text="{% trans 'Registering...' %}">{% trans 'Register' %}</button>
+                <button name="registration_submit" type="submit" value="Register" class="px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80" data-loading-text="{% trans 'Registering...' %}">{% trans 'Register' %}</button>
             </form>
         </div>
     </div>
