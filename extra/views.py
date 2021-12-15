@@ -6,6 +6,18 @@ from django.utils.translation import gettext_lazy as _
 from account.models import Account
 from django.contrib import messages
 
+# Select three (3) classes that have relationships (association, composition, aggregation, etc.) and belong to different tiers; one class in one tier.
+# Select the three (3) most complex functions in each class of the previous point that are related across classes. For measuring the complexity, use cyclomatic complexity. In total, you should come up with nine (9) functions, three (3) per class.
+#  Perform unit test on the nine (9) functions. (actually, for upper tiers, unit tests will behave as integration tests)
+
+# Class VoucherView : (View Tier)
+## 1. List of available voucher -> Dealing with Visual
+## 2. Redeem voucher and whether it save  -> Dealing with Model Manager and Storage
+## 3. Redeem voucher without balance
+
+# Class Account 
+## 1. Create account ??
+
 PageTitleMixin = get_class('customer.mixins', 'PageTitleMixin')
 Voucher = get_model('voucher', 'Voucher')
 
@@ -18,6 +30,8 @@ class Voucher(LoginRequiredMixin, PageTitleMixin, generic.ListView):
     template_name = 'extra/customer_voucher.html'
 
     def get(self, request):
+        # Show list of available vouchers to redeem and what current user
+        # have redeemed
         acc = Account.objects.filter(user=request.user)
         all_vouchers = self.model.objects.all()
         vouchers = []
@@ -39,6 +53,8 @@ class Voucher(LoginRequiredMixin, PageTitleMixin, generic.ListView):
         return render(request, self.template_name, context)
     
     def post(self, request):
+        # Send a redeem voucher request
+        # Require user to have enough balance
         voucher = self.model.objects.get(pk=request.POST["voucher"])
         voucher_cost = voucher.offers.first().benefit.value + 1000
         acc = Account.objects.get(user=request.user)
@@ -54,6 +70,10 @@ class Voucher(LoginRequiredMixin, PageTitleMixin, generic.ListView):
         return redirect("extra:redeemable_voucher")
 
 def claim_points(req):
+    # Check user's order history to see if the order status is shipped yet
+    # If the order status is shipped, user get reward in term of 5% of
+    # the purchase, and then order status changed to rewarded, so it won't reward 
+    # more than one
     acc = Account.objects.get(user=req.user)
     orders = acc.user.orders.all()
     for order in orders:
